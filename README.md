@@ -8,5 +8,3 @@
 Welcome to WDM-Simulator!
 
 Please refer to the readthedocs for more information.
-
-
