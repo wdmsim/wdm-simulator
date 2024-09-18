@@ -1,4 +1,5 @@
 # wdm-simulator
 
-Multi-Micro-ring Arbitration Simulator\n
+Multi-Micro-ring Arbitration Simulator
+
 Coming soon!
