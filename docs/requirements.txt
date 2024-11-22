@@ -1,0 +1,7 @@
+sphinx==5.3.0                # Core Sphinx package
+sphinx_rtd_theme             # Read the Docs theme for a consistent look
+sphinx_togglebutton          # Extension for collapsible content
+
+# Optional: Add Graphviz if graphviz diagrams are being used
+# graphviz
+
