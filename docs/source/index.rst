@@ -1,6 +1,6 @@
 
 
-.. image:: ../../.github/images/wdmsim_logo_white.png
+.. image:: ./wdmsim_logo_white.png
 	:alt: wdmsim-logo
 	:width: 70%
 
