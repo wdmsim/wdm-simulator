@@ -1,0 +1,11 @@
+type	laser	laser	laser	laser	laser	ring	ring	ring	ring	ring	ring	arbiter	init_lane_order	tgt_lane_order	result	result	result	result	result	result	result	result	result
+param	num_channel	center_wavelength	grid_spacing	grid_variance	grid_max_offset	fsr_mean	fsr_variance	tuning_range_mean	tuning_range_variance	inherit_laser_variance	resonance_variance	arbiter	init_lane_order	tgt_lane_order	num_success	num_failure	num_zero_lock	num_duplicate_lock	num_wrong_lane_order	failure_in_time	failure_zero_lock	failure_duplicate_lock	failure_wrong_lane_order
+0	4	1.30005e-06	2.24e-09	0.05	5e-09	8.96e-09	0.01	3.36e-09	0.1	False	2e-09	example_one_by_one	LINEAR	LINEAR	1	3	2	1	0	0.75	0.5	0.25	0.0
+1	4	1.30005e-06	2.24e-09	0.05	5e-09	8.96e-09	0.01	3.36e-09	0.1	False	3.0000000000000004e-09	example_one_by_one	LINEAR	LINEAR	1	3	2	1	0	0.75	0.5	0.25	0.0
+2	4	1.30005e-06	2.24e-09	0.05	5e-09	8.96e-09	0.01	3.36e-09	0.1	False	4e-09	example_one_by_one	LINEAR	LINEAR	0	4	2	0	2	1.0	0.5	0.0	0.5
+3	4	1.30005e-06	2.24e-09	0.05	5e-09	8.96e-09	0.01	4.48e-09	0.1	False	2e-09	example_one_by_one	LINEAR	LINEAR	0	4	3	0	1	1.0	0.75	0.0	0.25
+4	4	1.30005e-06	2.24e-09	0.05	5e-09	8.96e-09	0.01	4.48e-09	0.1	False	3.0000000000000004e-09	example_one_by_one	LINEAR	LINEAR	2	2	0	1	1	0.5	0.0	0.25	0.25
+5	4	1.30005e-06	2.24e-09	0.05	5e-09	8.96e-09	0.01	4.48e-09	0.1	False	4e-09	example_one_by_one	LINEAR	LINEAR	2	2	0	2	0	0.5	0.0	0.5	0.0
+6	4	1.30005e-06	2.24e-09	0.05	5e-09	8.96e-09	0.01	5.6e-09	0.1	False	2e-09	example_one_by_one	LINEAR	LINEAR	3	1	1	0	0	0.25	0.25	0.0	0.0
+7	4	1.30005e-06	2.24e-09	0.05	5e-09	8.96e-09	0.01	5.6e-09	0.1	False	3.0000000000000004e-09	example_one_by_one	LINEAR	LINEAR	0	4	2	2	0	1.0	0.5	0.5	0.0
+8	4	1.30005e-06	2.24e-09	0.05	5e-09	8.96e-09	0.01	5.6e-09	0.1	False	4e-09	example_one_by_one	LINEAR	LINEAR	2	2	0	0	2	0.5	0.0	0.0	0.5

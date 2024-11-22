@@ -1,0 +1,458 @@
+[
+    {
+        "laser_config_file": "example_run_config.yaml",
+        "laser_config_section": "laser-4",
+        "ring_config_file": "example_sweep_config.yaml",
+        "ring_config_section": "ring-4-sweep",
+        "init_lane_order_config_file": "example_run_config.yaml",
+        "init_lane_order_config_section": "linear",
+        "tgt_lane_order_config_file": "example_run_config.yaml",
+        "tgt_lane_order_config_section": "linear",
+        "arbiter_str": "example_one_by_one",
+        "num_laser_swaps": 2,
+        "num_ring_swaps": 2,
+        "laser_design_sweep_params": [
+            {
+                "num_channel": 4,
+                "center_wavelength": 1.30005e-06,
+                "grid_spacing": 2.24e-09,
+                "grid_variance": 0.05,
+                "grid_max_offset": 5e-09
+            }
+        ],
+        "ring_design_sweep_params": [
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            }
+        ],
+        "init_lane_order_params": {
+            "lane": {
+                "0": 0,
+                "1": 1,
+                "2": 2,
+                "3": 3
+            },
+            "alias": "LINEAR"
+        },
+        "tgt_lane_order_params": {
+            "lane": {
+                "0": 0,
+                "1": 1,
+                "2": 2,
+                "3": 3
+            },
+            "alias": "LINEAR"
+        }
+    },
+    {
+        "laser_config_file": "example_run_config.yaml",
+        "laser_config_section": "laser-4",
+        "ring_config_file": "example_sweep_config.yaml",
+        "ring_config_section": "ring-4-sweep",
+        "init_lane_order_config_file": "example_run_config.yaml",
+        "init_lane_order_config_section": "linear",
+        "tgt_lane_order_config_file": "example_run_config.yaml",
+        "tgt_lane_order_config_section": "linear",
+        "arbiter_str": "example_one_by_one",
+        "num_laser_swaps": 2,
+        "num_ring_swaps": 2,
+        "laser_design_sweep_params": [
+            {
+                "num_channel": 4,
+                "center_wavelength": 1.30005e-06,
+                "grid_spacing": 2.24e-09,
+                "grid_variance": 0.05,
+                "grid_max_offset": 5e-09
+            }
+        ],
+        "ring_design_sweep_params": [
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            }
+        ],
+        "init_lane_order_params": {
+            "lane": {
+                "0": 0,
+                "1": 1,
+                "2": 2,
+                "3": 3
+            },
+            "alias": "LINEAR"
+        },
+        "tgt_lane_order_params": {
+            "lane": {
+                "0": 0,
+                "1": 1,
+                "2": 2,
+                "3": 3
+            },
+            "alias": "LINEAR"
+        }
+    },
+    {
+        "laser_config_file": "example_run_config.yaml",
+        "laser_config_section": "laser-4",
+        "ring_config_file": "example_sweep_config.yaml",
+        "ring_config_section": "ring-4-sweep",
+        "init_lane_order_config_file": "example_run_config.yaml",
+        "init_lane_order_config_section": "linear",
+        "tgt_lane_order_config_file": "example_run_config.yaml",
+        "tgt_lane_order_config_section": "linear",
+        "arbiter_str": "example_one_by_one",
+        "num_laser_swaps": 2,
+        "num_ring_swaps": 2,
+        "laser_design_sweep_params": [
+            {
+                "num_channel": 4,
+                "center_wavelength": 1.30005e-06,
+                "grid_spacing": 2.24e-09,
+                "grid_variance": 0.05,
+                "grid_max_offset": 5e-09
+            }
+        ],
+        "ring_design_sweep_params": [
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            }
+        ],
+        "init_lane_order_params": {
+            "lane": {
+                "0": 0,
+                "1": 1,
+                "2": 2,
+                "3": 3
+            },
+            "alias": "LINEAR"
+        },
+        "tgt_lane_order_params": {
+            "lane": {
+                "0": 0,
+                "1": 1,
+                "2": 2,
+                "3": 3
+            },
+            "alias": "LINEAR"
+        }
+    },
+    {
+        "laser_config_file": "example_run_config.yaml",
+        "laser_config_section": "laser-4",
+        "ring_config_file": "example_sweep_config.yaml",
+        "ring_config_section": "ring-4-sweep",
+        "init_lane_order_config_file": "example_run_config.yaml",
+        "init_lane_order_config_section": "linear",
+        "tgt_lane_order_config_file": "example_run_config.yaml",
+        "tgt_lane_order_config_section": "linear",
+        "arbiter_str": "example_one_by_one",
+        "num_laser_swaps": 2,
+        "num_ring_swaps": 2,
+        "laser_design_sweep_params": [
+            {
+                "num_channel": 4,
+                "center_wavelength": 1.30005e-06,
+                "grid_spacing": 2.24e-09,
+                "grid_variance": 0.05,
+                "grid_max_offset": 5e-09
+            }
+        ],
+        "ring_design_sweep_params": [
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 3.36e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 4.48e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 2e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 3.0000000000000004e-09
+            },
+            {
+                "fsr_mean": 8.96e-09,
+                "fsr_variance": 0.01,
+                "tuning_range_mean": 5.6e-09,
+                "tuning_range_variance": 0.1,
+                "inherit_laser_variance": false,
+                "resonance_variance": 4e-09
+            }
+        ],
+        "init_lane_order_params": {
+            "lane": {
+                "0": 0,
+                "1": 1,
+                "2": 2,
+                "3": 3
+            },
+            "alias": "LINEAR"
+        },
+        "tgt_lane_order_params": {
+            "lane": {
+                "0": 0,
+                "1": 1,
+                "2": 2,
+                "3": 3
+            },
+            "alias": "LINEAR"
+        }
+    }
+]

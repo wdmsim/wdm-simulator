@@ -1,0 +1,37 @@
+# examples/example_run_config.yaml
+linear:
+  run: SINGLE
+  type: LANEORDER  
+  attribute:
+    alias: 'LINEAR'
+    lane:
+      0: 0
+      1: 1
+      2: 2
+      3: 3
+
+ring-4:
+  run: SINGLE
+  type: RING  
+  attribute:
+    fsr_mean: 8.96e-9
+    fsr_variance: 0.01
+    tuning_range_mean: 4.48e-9
+    tuning_range_variance: 0.10
+    inherit_laser_variance: false
+    resonance_variance: 2.0e-9
+
+laser-4:
+  run: SINGLE
+  type: LASER
+  attribute:
+    num_channel: 4
+    center_wavelength: 1300.05e-9
+    grid_spacing: 2.24e-9
+    grid_max_offset: 5.0e-9
+    grid_variance: 0.05
+
+
+    
+
+
