@@ -1,0 +1,26 @@
+# examples/example_sweep_config.yaml
+
+ring-4-sweep:
+  run: SWEEP
+  type: RING  
+  attribute:
+    fsr_mean: 8.96e-9
+    fsr_variance: 0.01
+    tuning_range_mean:
+      - 3.36e-9
+      - 4.48e-9  
+      - 5.60e-9  
+    tuning_range_variance: 0.10
+    inherit_laser_variance: false
+    resonance_variance:
+      run: 'LINEAR'
+      start: 2.0e-9
+      stop: 4.0e-9
+      num: 3
+
+
+
+
+    
+
+

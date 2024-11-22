@@ -19,7 +19,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.graphviz',
     'sphinx.ext.autosectionlabel',
-    'sphinxcontrib_hdl_diagrams',
+    'sphinx_togglebutton',
 ]
 
 templates_path = ['_templates']
