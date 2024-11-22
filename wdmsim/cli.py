@@ -881,6 +881,12 @@ def list_arbiter():
 def main():
     import multiprocessing
     if hasattr(multiprocessing, 'set_start_method'):
+        # This patch is for Unix-based systems only
+        # From Python 3.8, the default start method is 'spawn' which renders CLI-based sweeps (`wdmsim sweep`)
+        # to be erroneous, as the child processes do not inherit the parent's environment variables
+        # and thus cannot find the arbiter modules
+        # This patch sets the start method to 'fork' which is the default method for Python 3.7 and below
+        # For Windows, this doesn't work; Please use the `python -m wdmsim` command instead.
         multiprocessing.set_start_method('fork')  # Only available on Unix-based systems
 
     # arbiter_path = os.environ.get("WDMSIM_ARBITER_PATH", "")

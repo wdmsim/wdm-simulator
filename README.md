@@ -5,6 +5,8 @@
   </picture>
 </p>
 
-WDM lock simulator with various useful features
+Welcome to WDM-Simulator!
+
+Please refer to the readthedocs for more information.
 
 

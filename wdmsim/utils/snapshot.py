@@ -13,7 +13,7 @@ from copy import deepcopy
 
 from wdmsim.models.laser_grid import LaserGrid
 from wdmsim.models.ring_row import RingRxWDMRow
-# from wdmsim.state_machines.base_arbiter import BaseArbiter
+from wdmsim.arbiter.base_arbiter import BaseArbiter
 # from wdmsim.state_machines.arbiter_state import ArbiterState
 
 
