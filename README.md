@@ -7,6 +7,9 @@
 
 Welcome to WDM-Simulator!
 
-Please refer to the readthedocs for more information.
+In a nutshell, WDM-Sim is a python-based simulator for multi-microring wavelength arbitration/allocation at the
+Dense-Wavelength-Division-Multiplexing (DWDM) system.
+
+Please refer to the [documentation](https://wdm-simulator.readthedocs.io/en/latest/index.html) for more information.
 
 
