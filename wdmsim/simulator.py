@@ -1,6 +1,4 @@
 
-import logging
-import random
 from typing import List, NamedTuple, Optional
 
 import numpy 
@@ -583,10 +581,21 @@ class Simulator:
             # self.shuffle_ring_row()
             ring_row_params = calculate_ring_row_params(self.laser_design_params.num_channel, self.ring_design_params)
 
+            # TODO: VERIFY!
+            # create ring wavelengths *unsorted* 
+            if self.ring_design_params.inherit_laser_variance:
+                # assume rings are initially locked to laser grid
+                # note that ring ordering is determined by init_lane_order, ordered at SUT initialization
+                ring_wavelengths = self.laser_grid.wavelengths
+            else:
+                # calculate ring wavelengths
+                ring_wavelengths = calculate_ring_wavelengths(self.laser_design_params, self.ring_design_params)
+
             # shuffle in new SUT with ring row parameters (and ring wavelengths)
             self.system_under_test = SystemUnderTest.construct_slices_and_arbiter(
                 ring_row_params=ring_row_params,
-                ring_wavelengths=self.laser_grid.wavelengths, # TODO: is this correct?
+                # ring_wavelengths=self.laser_grid.wavelengths, # TODO: is this correct?
+                ring_wavelengths=ring_wavelengths,
                 init_lane_order=init_lane_order,
                 arbiter_cls=arbiter_cls,
                 tgt_lane_order=tgt_lane_order,
@@ -595,7 +604,8 @@ class Simulator:
             # instantiate a new system under test with arbiter_of_compare
             system_under_test_compare = SystemUnderTest.construct_slices_and_arbiter(
                 ring_row_params=ring_row_params,
-                ring_wavelengths=self.laser_grid.wavelengths, # TODO: is this correct?
+                # ring_wavelengths=self.laser_grid.wavelengths, # TODO: is this correct?
+                ring_wavelengths=ring_wavelengths,
                 init_lane_order=init_lane_order,
                 arbiter_cls=arbiter_compare_cls,
                 tgt_lane_order=tgt_lane_order,
