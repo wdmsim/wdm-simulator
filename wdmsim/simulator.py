@@ -1,5 +1,6 @@
 
 from typing import List, NamedTuple, Optional
+import logging
 
 import numpy 
 import pandas as pd
