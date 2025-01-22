@@ -1,6 +1,7 @@
 
-from typing import List, NamedTuple, Optional
 import logging
+import random
+from typing import List, NamedTuple, Optional
 
 import numpy 
 import pandas as pd
