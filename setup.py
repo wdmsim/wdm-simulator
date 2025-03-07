@@ -37,17 +37,6 @@ if __name__ == "__main__":
         parsed_arbiter_path = get_wdmsim_arbiter_path()
         if parsed_arbiter_path:
             # setup with pybind cpp extension
-
-            # ext_modules = [
-            #     # This allows the module to be imported as `from algorithms.dfs import <function>`
-            #     Pybind11Extension(
-            #         "algorithms.dfs",
-            #         ["algorithms/dfs.cpp"],  # Adjust the path to your source file
-            #         # Define extra compile args if necessary, e.g., C++ version
-            #         # extra_compile_args=['-std=c++11'],
-            #     ),
-            # ]
-
             for arbiter_path in parsed_arbiter_path:
                 ext_modules = []
 
@@ -56,9 +45,11 @@ if __name__ == "__main__":
                     ext_modules.append(
                         Pybind11Extension(
                             f"{arbiter_path.stem}.{cpp_file.stem}",
-                            [cpp_file.absolute()],
+                            [cpp_file.relative_to(os.getcwd())],
+                            # [cpp_file.absolute()],
                         )
                     )
+
         else:
             ext_modules = []
             

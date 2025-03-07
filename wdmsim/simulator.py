@@ -1,6 +1,4 @@
 
-import logging
-import random
 from typing import List, NamedTuple, Optional
 
 import numpy 
@@ -570,6 +568,10 @@ class Simulator:
         # if tgt lane order is none, then we don't need to check for wrong lane order
         check_wrong_lane_order = self.system_under_test.arbiter.target_lane_order is not None
 
+        # exit status is loosely defined (lousy classification)
+        # see if both failed or both succeeded
+        is_success = lambda x: x == SystemUnderTest.EXIT_SUCCESS
+
         # detailed diagnostics
         zero_dupl_case = [SystemUnderTest.EXIT_ZERO_LOCK, SystemUnderTest.EXIT_DUPLICATE_LOCK]
         wrong_order_case = [SystemUnderTest.EXIT_WRONG_LANE_ORDER]
@@ -577,16 +579,31 @@ class Simulator:
         num_zero_dupl_lock_mismatch = 0
         num_wrong_lane_order_mismatch = 0
     
+        # tracking individual failures
+        _num_failure_arbiter = 0
+        _num_failure_arbiter_compare = 0
+
         # run iterations
         for _ in range(num_ring_swaps):
             # first loop swaps ring row after laser swap iterations
             # self.shuffle_ring_row()
             ring_row_params = calculate_ring_row_params(self.laser_design_params.num_channel, self.ring_design_params)
 
+            # TODO: VERIFY!
+            # create ring wavelengths *unsorted* 
+            if self.ring_design_params.inherit_laser_variance:
+                # assume rings are initially locked to laser grid
+                # note that ring ordering is determined by init_lane_order, ordered at SUT initialization
+                ring_wavelengths = self.laser_grid.wavelengths
+            else:
+                # calculate ring wavelengths
+                ring_wavelengths = calculate_ring_wavelengths(self.laser_design_params, self.ring_design_params)
+
             # shuffle in new SUT with ring row parameters (and ring wavelengths)
             self.system_under_test = SystemUnderTest.construct_slices_and_arbiter(
                 ring_row_params=ring_row_params,
-                ring_wavelengths=self.laser_grid.wavelengths, # TODO: is this correct?
+                # ring_wavelengths=self.laser_grid.wavelengths, # TODO: is this correct?
+                ring_wavelengths=ring_wavelengths,
                 init_lane_order=init_lane_order,
                 arbiter_cls=arbiter_cls,
                 tgt_lane_order=tgt_lane_order,
@@ -595,7 +612,8 @@ class Simulator:
             # instantiate a new system under test with arbiter_of_compare
             system_under_test_compare = SystemUnderTest.construct_slices_and_arbiter(
                 ring_row_params=ring_row_params,
-                ring_wavelengths=self.laser_grid.wavelengths, # TODO: is this correct?
+                # ring_wavelengths=self.laser_grid.wavelengths, # TODO: is this correct?
+                ring_wavelengths=ring_wavelengths,
                 init_lane_order=init_lane_order,
                 arbiter_cls=arbiter_compare_cls,
                 tgt_lane_order=tgt_lane_order,
@@ -617,12 +635,14 @@ class Simulator:
                     plot_statistics=False,
                 )
 
-                # TODO: improve
-                # exit status is loosely defined (lousy classification)
-                # see if both failed or both succeeded
-                is_success = lambda x: x == SystemUnderTest.EXIT_SUCCESS
                 is_both_success = is_success(exit_status) and is_success(exit_status_compare)
                 is_both_failure = not is_success(exit_status) and not is_success(exit_status_compare)
+
+                # Record individual status
+                if not is_success(exit_status):
+                    _num_failure_arbiter += 1
+                if not is_success(exit_status_compare):
+                    _num_failure_arbiter_compare += 1
 
                 # compare the exit status
                 # if exit_status != exit_status_compare:
@@ -638,6 +658,15 @@ class Simulator:
                     # if the exit status is different, then we have a failure
                     # raise Exception(f"Exit status mismatch: {exit_status} vs {exit_status_compare}")
                     num_failure += 1
+
+                    if not is_success(exit_status):
+                        num_zero_dupl_lock_mismatch += 1 if exit_status in zero_dupl_case else 0
+                        num_wrong_lane_order_mismatch += 1 if exit_status in wrong_order_case else 0
+
+                    elif not is_success(exit_status_compare):
+                        num_zero_dupl_lock_mismatch += 1 if exit_status_compare in zero_dupl_case else 0
+                        num_wrong_lane_order_mismatch += 1 if exit_status_compare in wrong_order_case else 0
+
                     if logger.isEnabledFor(_VERBOSE):
                         logger.info(f"\n{text2art('COMPARE FAIL')}")
 
@@ -670,16 +699,16 @@ class Simulator:
                 # elif exit_status_compare == SystemUnderTest.EXIT_WRONG_LANE_ORDER:
                 #     num_wrong_lane_order_arbcomp += 1
 
-                # Updated diagnostics
-                if exit_status in zero_dupl_case and exit_status_compare not in zero_dupl_case:
-                    num_zero_dupl_lock_mismatch += 1
-                elif exit_status not in zero_dupl_case and exit_status_compare in zero_dupl_case:
-                    num_zero_dupl_lock_mismatch += 1
-
-                if exit_status in wrong_order_case and exit_status_compare not in wrong_order_case:
-                    num_wrong_lane_order_mismatch += 1
-                elif exit_status not in wrong_order_case and exit_status_compare in wrong_order_case:
-                    num_wrong_lane_order_mismatch += 1
+                # # Updated diagnostics
+                # if exit_status in zero_dupl_case and exit_status_compare not in zero_dupl_case:
+                #     num_zero_dupl_lock_mismatch += 1
+                # elif exit_status not in zero_dupl_case and exit_status_compare in zero_dupl_case:
+                #     num_zero_dupl_lock_mismatch += 1
+                #
+                # if exit_status in wrong_order_case and exit_status_compare not in wrong_order_case:
+                #     num_wrong_lane_order_mismatch += 1
+                # elif exit_status not in wrong_order_case and exit_status_compare in wrong_order_case:
+                #     num_wrong_lane_order_mismatch += 1
 
 
             # logging.info(f"Experiment completed - They are the same!")
@@ -691,6 +720,9 @@ class Simulator:
         # detailed diagnostics
         failure_zero_dupl_lock = num_zero_dupl_lock_mismatch / num_experiments
         failure_wrong_lane_order = num_wrong_lane_order_mismatch / num_experiments
+        # individual failure rates
+        _failure_arbiter = _num_failure_arbiter / num_experiments
+        _failure_arbiter_compare = _num_failure_arbiter_compare / num_experiments
 
         # log experiment results - iterations and failure in time
         logging.info(f"[Experiment] ")
@@ -709,6 +741,9 @@ class Simulator:
             'num_wrong_lane_order_mismatch': num_wrong_lane_order_mismatch,
             'failure_zero_dupl_lock': failure_zero_dupl_lock,
             'failure_wrong_lane_order': failure_wrong_lane_order,
+            # individual failure rates
+            '_failure_rate_arbiter': _failure_arbiter,
+            '_failure_rate_arbiter_compare': _failure_arbiter_compare,
         }
 
         return SimulatorOutputs(
